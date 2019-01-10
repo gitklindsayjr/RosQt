@@ -1,0 +1,39 @@
+1. Check to make sure that your ros enviromentals are set correctly
+    $ export | grep ros # Should produce the following list
+	declare -x CMAKE_PREFIX_PATH="/opt/ros/kinetic"
+	declare -x LD_LIBRARY_PATH="/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu"
+	declare -x PATH="/opt/ros/kinetic/bin:/home/pops/bin:/home/pops/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+	declare -x PKG_CONFIG_PATH="/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig"
+	declare -x PYTHONPATH="/opt/ros/kinetic/lib/python2.7/dist-packages:/usr/lib/python2.7/site-packages"
+	declare -x ROS_ETC_DIR="/opt/ros/kinetic/etc/ros"
+	declare -x ROS_PACKAGE_PATH="/opt/ros/kinetic/share"
+	declare -x ROS_ROOT="/opt/ros/kinetic/share/ros"
+
+2. To use the eviromentals correctly you will need to use the launcher supplied in the QtRos_Example folder.
+   This "Ros Qt Creator.desktop" launcher calls qtcreator using a bash shell on the execute line
+	Exec=bash -i -c qtcreator %F
+
+3. Launch "Ros Qt Creator"
+
+4. In the Sidebar Window
+    a. Select "Welcome"
+    b. Open project
+    c. Browse to the location where ~/xxx/QtRos_Example/src is located
+    d. Select "QtRos_example.pro"
+    e. Then "Configure Project"
+
+5.In the Sidebar Window
+    a. Select "Project"
+    b. Uncheck "Shadow build" if checked otherwise the object files and auto generated will be
+       in a seperate directory
+
+6. In the Sidebar Window
+    a. Select "Edit"
+    b. Then right click the QtRos_Example project and select "Run Qmake" then "Rebuild"
+
+7. In a Ubuntu terminal
+	$ roscore
+
+8. If you want to connect to the MSP432 through the /dev/ttyACM0 serial port refer to
+   the repository: https://github.com/gitklindsayjr/MicroControllers "ROS_MSP432_RED"
+
